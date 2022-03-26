@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">    
+            <input type="text" class="form-control" [(ngModel)]="newServerName">
+            <br>
+            <button class="btn btn-primary btn-block" (click)="onServerAdd()" [disabled]="newServerName===''">Add Server</button>   
+            <br>  
+            <p *ngIf="isNewServerAddedByButtonClickEvent; else noServerCreated">Server created and the name is :{{newServerName}}</p>
+            <ng-template #noServerCreated>
+                <p>
+                        No Server Created
+                </p>
+            </ng-template>
+            <app-server *ngFor="let serversToDisplay of serversToPush"></app-server>
+        </div>
+    </div>
+</div>
